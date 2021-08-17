@@ -1,14 +1,21 @@
+const generate = require("./generate");
+
 class Neurônio {
-  constructor(w1, w2) {
-    (this.w1 = w1 ?? numeroAleatorio(0, 1)),
-      (this.w2 = w2 ?? numeroAleatorio(0, 1));
+  constructor(n, amostras, saidas, entradas) {
+    if (amostras && saidas) {
+      const tam = amostras[0].length;
+      amostras.forEach((a) => a.unshift(-1));
+      this.n = n ?? 0.5;
+      this.amostras = amostras;
+      this.saidas = saidas;
+      this.entradas = entradas ?? [0, 0, 0];
+      this.pesos = generate.vetorAleatorio(tam, 0, 1);
+    }
+  }
+
+  saida() {
+    return 1;
   }
 }
 
-function numeroAleatorio(min, max) {
-  return Math.random() * (max - min) + min;
-}
-
-const n = new Neurônio();
-
-console.log(n);
+module.exports = { Neurônio };
