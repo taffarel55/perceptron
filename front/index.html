@@ -5,11 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="generate.js" defer></script>
     <script src="neuro.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 <body>
-    
+    <div class="tela"></div>
+    <div class="form">
+        <h2>Cadastrar</h2>
+        <div class="opcoes">
+            <div id="verde" class="verde" style="padding:40px"></div>
+            <div id="vermelho" class="vermelho" style="padding:40px"></div>
+        </div>
+        <button type="button" class="resetar">Resetar</button>
+        <hr style="color: white"/>
+        <h2 style="margin-top: 20px">Treinamento</h2>
+        
+        <div style="display:flex; flex-direction: column; align-items: center;">
+            <div><label>Taxa de aprendizagem da rede:</label></div>
+            <div><input type="text" class="taxa" min="0" max="1" /></div>
+        </div>
+        
+        <button type="button" class="treinar">Treinar</button>
+    </div>
 </body>
 </html>
