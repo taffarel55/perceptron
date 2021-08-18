@@ -64,16 +64,16 @@ class Neurônio {
         }
 
         for (let i = 0; i < novo.length; i++) {
-          this.pesos[i] += novo[i];
+          this.pesos[i] += this.n*novo[i];
         }
       } else {
         erro = false;
       }
 
       epoca++;
-      if (!erro || epoca === 50) break;
+      if (!erro || epoca === 100) break;
     }
-    if (epoca === 50) {
+    if (epoca === 100) {
       console.log("Neurônio não conseguiu aprender, tente mudar as entradas!");
       console.log("");
     } else {

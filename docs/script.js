@@ -73,6 +73,7 @@ resetar.addEventListener("click", () => {
 });
 
 treinar.addEventListener("click", (event) => {
+  log.innerHTML = "";
   tela.classList.remove("cruz");
   vermelho.classList.remove("selected");
   verde.classList.remove("selected");
