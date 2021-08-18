@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+body {
+  background-color: cornflowerblue;
+}
+
+.body {
+  margin-top: 50px;
+  padding: 20px;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  color: white;
+}
+
+.tela {
+  border-radius: 20px;
+  position: relative;
+  width: 800px;
+  background-color: white;
+  box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.cruz {
+  cursor: crosshair;
+}
+
+.opcoes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.verde {
+  padding: 15px;
+  background-color: darkgreen;
+  width: 0px;
+  border-radius: 50%;
+  cursor: cell;
+}
+
+.selected {
+  box-shadow: inset 0 0 10px white;
+}
+
+.vermelho {
+  padding: 15px;
+  background-color: darkred;
+  width: 0px;
+  border-radius: 50%;
+  cursor: cell;
+}
+
+.buttons {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.resetar,
+.treinar,
+.inserir {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  background-color: lightgray;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.escondido {
+  display: none;
+}
+
+.box {
+  position: relative;
+  padding: 10px;
+  padding-top: 30px;
+  display: block;
+  border-radius: 10px;
+  background-color: #333;
+  font-family: Courier;
+  box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.2);
+  margin: 40px;
+}
+
+#log {
+  height: 60vh;
+  overflow-y: scroll;
+}
+.log-boolean,
+.log-undefined {
+  color: magenta;
+}
+.log-object {
+  color: cyan;
+}
+.log-string {
+  color: lawngreen;
+}
+.log-number {
+  color: orange;
+}
+
+.btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: darkred;
+  color: white;
+  border-radius: 10px;
+  height: 30px;
+  width: 30px;
+  font-size: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+@media (max-width: 650px) {
+  .body {
+    flex-direction: column;
+  }
+
+  .tela {
+    width: 90%;
+    height: 50vh;
+    margin: 0 auto;
+  }
+
+  .modal {
+    
+  }
+}

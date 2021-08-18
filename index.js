@@ -11,6 +11,8 @@ amostras = [
 
 saidas = [-1, 1, -1, 1, 1, -1];
 
-const n = new Neurônio(0.2, amostras, saidas, 1);
+const n = new Neurônio(0.2, amostras, saidas);
 
 n.treinar();
+
+console.log(n.operacao([0,0]));

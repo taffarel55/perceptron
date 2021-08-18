@@ -11,6 +11,13 @@ function vetorAleatorio(n, min, max) {
 }
 
 function sinal(vetor) {
+  if (!vetor.length) {
+    if (vetor >= 0) {
+      return 1;
+    } else if (vetor < 0) {
+      return -1;
+    }
+  }
   const retorno = vetor.map((item) => {
     if (item >= 0) {
       return 1;

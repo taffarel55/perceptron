@@ -1,14 +1,14 @@
 const { vetorAleatorio, sinal, saoIguais, subtrair } = require("./generate");
 
 class Neurônio {
-  constructor(n, amostras, saidas, entradas) {
+  constructor(n, amostras, saidas, debug) {
     if (amostras && saidas) {
       amostras.forEach((a) => a.unshift(-1));
       this.n = n ?? 0.2;
       this.amostras = amostras;
       this.saidas = saidas;
-      this.entradas = entradas ?? [0, 0, 0];
       this.pesos = vetorAleatorio(amostras[0].length, 0, 0.5);
+      this.debug = debug;
     }
   }
 
@@ -18,11 +18,13 @@ class Neurônio {
     let u = [];
     let y = [];
 
-    console.log("Neuro abaixo será treinado:");
-    console.log("Amostras:", this.amostras);
-    console.log("Saídas:", this.saidas);
-    console.log("Pesos sinápticos:", this.pesos);
-    console.log("Taxa de aprendizado:", this.n);
+    if (this.debug===true) { 
+      console.log("Neuro abaixo será treinado:");
+      console.log("Amostras:", this.amostras);
+      console.log("Saídas:", this.saidas);
+      console.log("Pesos sinápticos:", this.pesos);
+      console.log("Taxa de aprendizado:", this.n);
+    }
 
     console.log("Iniciando o treinamento do Neuro...");
     while (erro) {
@@ -37,10 +39,12 @@ class Neurônio {
       });
       y = sinal(u);
 
-      console.log(`\nÉpoca ${epoca}:`);
-      console.log(`Saídas esperadas:`, this.saidas);
-      console.log(`Saídas obtidas  :`, y);
-      console.log(`Pesos atuais: `, this.pesos);
+      if (this.debug===true) { 
+        console.log(`\nÉpoca ${epoca}:`);
+        console.log(`Saídas esperadas:`, this.saidas);
+        console.log(`Saídas obtidas  :`, y);
+        console.log(`Pesos atuais: `, this.pesos);
+      }
 
       if (!saoIguais(y, saidas)) {
         const diferenca = subtrair(saidas, y);
@@ -64,9 +68,25 @@ class Neurônio {
       }
 
       epoca++;
-      if (!erro) break;
+      if (!erro || epoca>50) break;
+    }
+    if (epoca>50) {
+      console.log('Neurônio não conseguiu aprender, tente mudar as entradas!');
+    } else {
+      console.log('Treinamento realizado com sucesso!');
     }
   }
+
+  operacao(entrada) {
+    //console.log(this.pesos);
+    entrada.unshift(-1);
+    if (this.pesos.length !== entrada.length) return 0;
+    let acumulo = 0;
+    for (let i = 0; i < entrada.length; i++) {
+      acumulo += entrada[i] * this.pesos[i];
+    }
+    return sinal(acumulo);
+  };
 }
 
 module.exports = { Neurônio };
