@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Barreto da Silva"
+  given-names: "Maurício Taffarel"
+  orcid: "https://orcid.org/0000-0002-8793-7896"
+title: "Perceptron: Implementação em R e em Javascript"
+version: 1.0.0
+date-released: 2022-01-12
+url: "https://github.com/taffarel55/perceptron"
